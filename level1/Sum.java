@@ -1,26 +1,36 @@
-/*Write a program to check for the natural number and write the sum of n natural numbers 
+/*Write a program to store multiple values in an array up to a maximum of 10 or until the user enters a 0 or a negative number. Show all the numbers as well as the sum of all numbers 
 Hint => 
-A Natural Number is a positive integer (1,2,3, etc) sometimes with the inclusion of 0
-A sum of n natural numbers is n * (n+1) / 2 
-I/P => number
-O/P => If the number is a positive integer then the output is
-The sum of ___ natural numbers is ___
-Otherwise 
-The number ___ is not a natural number
+Create a variable to store an array of 10 elements of type double as well as a variable to store the total of type double initializes to 0.0. Also, the index variable is initialized to 0 for the array
+Use infinite while loop as in while (true)
+Take the user entry and check if the user entered 0 or a negative number to break the loop 
+Also, break from the loop if the index has a value of 10 as the array size is limited to 10.
+If the user entered a number other than 0 or a negative number inside the while loop then assign the number to the array element and increment the index value
+Take another for loop to get the values of each element and add it to the total 
+Finally display the total value
 */
 import java.util.*;
-public class Sum{
-	public static void main(String args[] ){
-		System.out.print("enter n : ");
-		Scanner sc= new Scanner(System.in);
-		int n= sc.nextInt();
-		int sum = n * (n+1) / 2;
-		if(n>=0){
-			System.out.println("If the number is a positive integer then the sum of natural numbers is " + sum );
-		}else{
-			System.out.println("number is not a natural number");
-		}
-	}
-}
+
+class sum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double arr[] = new double[10];
+        double sum = 0;
+        int i = 0;
+
+        while (i < 10) {
+            System.out.print("Enter number: ");
+            double num = sc.nextDouble();
+            if (num <= 0) break;
+
+            arr[i] = num;
+            sum += num;
+            i++;
+        }
 		
-	
+        for (int j = 0; j < i; j++) {
+            System.out.print(arr[j] + " ");
+        }
+
+        System.out.println("\nSum = " + sum);
+    }
+}
